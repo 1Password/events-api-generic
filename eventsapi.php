@@ -3,11 +3,7 @@
 # https://support.1password.com/events-reporting
 
 $api_token = "Bearer ".getenv('EVENTS_API_TOKEN');
-$url = getenv('EVENTS_API_URL');
-
-if (!isset($url) || strlen($url) == 0) {
-  $url = "https://events.1password.com";
-}
+$url = "https://events.1password.com";
 
 $start_time = (new \DateTime())->modify('-24 hours');
 

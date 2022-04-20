@@ -6,7 +6,7 @@ import os
 # https://support.1password.com/events-reporting
 
 api_token = "Bearer "+os.environ['EVENTS_API_TOKEN']
-url = "https://events.1password.com" if not "EVENTS_API_URL" in os.environ else os.environ["EVENTS_API_URL"]
+url = "https://events.1password.com"
 
 start_time = datetime.datetime.now() - datetime.timedelta(hours=24)
 

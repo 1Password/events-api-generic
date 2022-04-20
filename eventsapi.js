@@ -2,7 +2,7 @@
 // https://support.1password.com/events-reporting
 
 const apiToken = `Bearer ${process.env.EVENTS_API_TOKEN}`;
-const url = process.env.EVENTS_API_URL || "https://events.1password.com";
+const url = "https://events.1password.com";
 
 const startTime = new Date();
 startTime.setHours(startTime.getHours() - 24);

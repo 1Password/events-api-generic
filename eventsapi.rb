@@ -7,7 +7,7 @@ require 'uri'
 # https://support.1password.com/events-reporting
 
 api_token = ENV['EVENTS_API_TOKEN']
-url = ENV['EVENTS_API_URL'] || 'https://events.1password.com'
+url = 'https://events.1password.com'
 
 start_time = DateTime.now - 24
 

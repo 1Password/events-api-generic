@@ -12,9 +12,6 @@ import (
 func main() {
 	var api_token = "Bearer " + os.Getenv("EVENTS_API_TOKEN")
 	var url = "https://events.1password.com"
-	if len(os.Getenv("EVENTS_API_URL")) > 0 {
-		url = os.Getenv("EVENTS_API_URL")
-	}
 
 	var start_time = time.Now().AddDate(0, 0, -24)
 
