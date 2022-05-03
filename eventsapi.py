@@ -22,13 +22,13 @@ payload = {
 # Alternatively, use the cursor returned from previous responses to get any new events
 # payload = { "cursor": cursor }
 
-r = requests.post(url+"/api/v1/signinattempts", headers=headers, json=payload)
+r = requests.post(f"{url}/api/v1/signinattempts", headers=headers, json=payload)
 if (r.status_code == requests.codes.ok):
   print(r.json())
 else:
   print("Error getting sign in attempts: status code", r.status_code)
 
-r = requests.post(url+"/api/v1/itemusages", headers=headers, json=payload)
+r = requests.post(f"{url}/api/v1/itemusages", headers=headers, json=payload)
 if (r.status_code == requests.codes.ok):
   print(r.json())
 else:
