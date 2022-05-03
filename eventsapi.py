@@ -5,7 +5,7 @@ import os
 # For more information, check out our support page
 # https://support.1password.com/events-reporting
 
-api_token = "Bearer "+os.environ['EVENTS_API_TOKEN']
+api_token = f"Bearer {os.environ['EVENTS_API_TOKEN']}"
 url = "https://events.1password.com"
 
 start_time = datetime.datetime.now() - datetime.timedelta(hours=24)
