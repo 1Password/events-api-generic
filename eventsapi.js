@@ -1,7 +1,7 @@
 // For more information, check out our support page
 // https://support.1password.com/events-reporting
 
-const apiToken = `Bearer ${process.env.EVENTS_API_TOKEN}`;
+const apiToken = process.env.EVENTS_API_TOKEN;
 const url = "https://events.1password.com";
 
 const startTime = new Date();
@@ -9,7 +9,7 @@ startTime.setHours(startTime.getHours() - 24);
 
 const headers = {
   "Content-Type": "application/json",
-  "Authorization": apiToken
+  "Authorization": `Bearer ${apiToken}`
 };
 const payload = {
   "limit": 20,

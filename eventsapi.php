@@ -2,14 +2,14 @@
 # For more information, check out our support page
 # https://support.1password.com/events-reporting
 
-$api_token = "Bearer ".getenv('EVENTS_API_TOKEN');
+$api_token = getenv('EVENTS_API_TOKEN');
 $url = "https://events.1password.com";
 
 $start_time = (new \DateTime())->modify('-24 hours');
 
 $headers = array(
   "Content-Type: application/json",
-  "Authorization: $api_token"
+  "Authorization: Bearer $api_token"
 );
 $payload = array(
   "limit" => 20,

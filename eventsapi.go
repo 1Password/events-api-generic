@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	api_token := "Bearer " + os.Getenv("EVENTS_API_TOKEN")
+	api_token := os.Getenv("EVENTS_API_TOKEN")
 	url := "https://events.1password.com"
 
 	start_time := time.Now().AddDate(0, 0, -1)
@@ -24,7 +24,7 @@ func main() {
 
 	signinsRequest, _ := http.NewRequest("POST", fmt.Sprintf("%s/api/v1/signinattempts", url), bytes.NewBuffer(payload))
 	signinsRequest.Header.Set("Content-Type", "application/json")
-	signinsRequest.Header.Set("Authorization", api_token)
+	signinsRequest.Header.Set("Authorization", "Bearer "+api_token)
 	signinsResponse, signinsError := client.Do(signinsRequest)
 	if signinsError != nil {
 		panic(signinsError)
@@ -35,7 +35,7 @@ func main() {
 
 	usagesRequest, _ := http.NewRequest("POST", fmt.Sprintf("%s/api/v1/itemusages", url), bytes.NewBuffer(payload))
 	usagesRequest.Header.Set("Content-Type", "application/json")
-	usagesRequest.Header.Set("Authorization", api_token)
+	usagesRequest.Header.Set("Authorization", "Bearer "+api_token)
 	usagesResponse, usagesError := client.Do(usagesRequest)
 	if usagesError != nil {
 		panic(usagesError)
