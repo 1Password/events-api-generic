@@ -10,12 +10,12 @@ import (
 )
 
 func main() {
-	var api_token = "Bearer " + os.Getenv("EVENTS_API_TOKEN")
-	var url = "https://events.1password.com"
+	api_token := "Bearer " + os.Getenv("EVENTS_API_TOKEN")
+	url := "https://events.1password.com"
 
-	var start_time = time.Now().AddDate(0, 0, -24)
+	start_time := time.Now().AddDate(0, 0, -1)
 
-	var payload = []byte(fmt.Sprintf(`{
+	payload := []byte(fmt.Sprintf(`{
 		"limit": 20,
 		"start_time": "%s"
 	}`, start_time.Format(time.RFC3339)))
