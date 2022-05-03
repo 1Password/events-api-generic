@@ -20,15 +20,27 @@ func main() {
 		"start_time": "%s"
 	}`, start_time.Format(time.RFC3339)))
 
-	request, error := http.NewRequest("POST", fmt.Sprintf("%s/api/v1/signinattempts", url), bytes.NewBuffer(payload))
-	request.Header.Set("Content-Type", "application/json")
-	request.Header.Set("Authorization", api_token)
 	client := &http.Client{}
-	response, error := client.Do(request)
-	if error != nil {
-		panic(error)
+
+	signinsRequest, _ := http.NewRequest("POST", fmt.Sprintf("%s/api/v1/signinattempts", url), bytes.NewBuffer(payload))
+	signinsRequest.Header.Set("Content-Type", "application/json")
+	signinsRequest.Header.Set("Authorization", api_token)
+	signinsResponse, signinsError := client.Do(signinsRequest)
+	if signinsError != nil {
+		panic(signinsError)
 	}
-	defer response.Body.Close()
-	body, _ := ioutil.ReadAll(response.Body)
-	fmt.Println(string(body))
+	defer signinsResponse.Body.Close()
+	signinsBody, _ := ioutil.ReadAll(signinsResponse.Body)
+	fmt.Println(string(signinsBody))
+
+	usagesRequest, _ := http.NewRequest("POST", fmt.Sprintf("%s/api/v1/itemusages", url), bytes.NewBuffer(payload))
+	usagesRequest.Header.Set("Content-Type", "application/json")
+	usagesRequest.Header.Set("Authorization", api_token)
+	usagesResponse, usagesError := client.Do(usagesRequest)
+	if usagesError != nil {
+		panic(usagesError)
+	}
+	defer usagesResponse.Body.Close()
+	usagesBody, _ := ioutil.ReadAll(usagesResponse.Body)
+	fmt.Println(string(usagesBody))
 }
