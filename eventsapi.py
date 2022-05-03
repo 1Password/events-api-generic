@@ -1,42 +1,38 @@
 import datetime
 import requests
+import os
 
 # For more information, check out our support page
 # https://support.1password.com/events-reporting
 
-
-# Replace APITOKEN with your generated Events API token
-api_token = "Bearer APITOKEN"
-
-# Your URL corresponds to your 1Password account region
+api_token = os.environ['EVENTS_API_TOKEN']
 url = "https://events.1password.com"
 
 start_time = datetime.datetime.now() - datetime.timedelta(hours=24)
 
-header = {
-    "Content-Type": "application/json",
-    "Authorization": api_token
+headers = {
+  "Content-Type": "application/json",
+  "Authorization": f"Bearer {api_token}"
 }
 payload = {
-    "limit": 20,
-    "start_time": start_time.astimezone().replace(microsecond=0).isoformat()
+  "limit": 20,
+  "start_time": start_time.astimezone().replace(microsecond=0).isoformat()
 }
 
 # Alternatively, use the cursor returned from previous responses to get any new events
-# payload = { "cursor" : cursor }
+# payload = { "cursor": cursor }
 
-r = requests.post(url+"/api/v1/signinattempts", headers=header, json=payload)
+r = requests.post(f"{url}/api/v1/signinattempts", headers=headers, json=payload)
 if (r.status_code == requests.codes.ok):
-    print(r.json())
+  print(r.json())
 else:
-    print("Error getting sign in attempts: status code", r.status_code)
+  print("Error getting sign in attempts: status code", r.status_code)
 
-r = requests.post(url+"/api/v1/itemusages", headers=header, json=payload)
+r = requests.post(f"{url}/api/v1/itemusages", headers=headers, json=payload)
 if (r.status_code == requests.codes.ok):
-    print(r.json())
+  print(r.json())
 else:
-    print("Error getting item usages: status code", r.status_code)
-
+  print("Error getting item usages: status code", r.status_code)
 
 # For more information on the response, check out our support page
 # https://support.1password.com/cs/events-api-reference/
