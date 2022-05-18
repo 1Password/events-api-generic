@@ -13,7 +13,6 @@ start_time = datetime.datetime.now() - datetime.timedelta(hours=24)
 session = requests.Session()
 
 headers = {
-  "Content-Type": "application/json",
   "Authorization": f"Bearer {api_token}"
 }
 session.headers.update(headers)
@@ -26,13 +25,13 @@ payload = {
 # payload = { "cursor": cursor }
 
 r = session.post(f"{url}/api/v1/signinattempts", headers=headers, json=payload)
-if (r.status_code == session.codes.ok):
+if (r.status_code == requests.codes.ok):
   print(r.json())
 else:
   print("Error getting sign in attempts: status code", r.status_code)
 
 r = session.post(f"{url}/api/v1/itemusages", headers=headers, json=payload)
-if (r.status_code == session.codes.ok):
+if (r.status_code == requests.codes.ok):
   print(r.json())
 else:
   print("Error getting item usages: status code", r.status_code)
