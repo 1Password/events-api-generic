@@ -47,5 +47,17 @@ else
   puts("Error getting item usages: status code #{res.code}")
 end
 
+uri = URI.parse(url+"/api/v1/auditevents")
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+req = Net::HTTP::Post.new(uri.request_uri, headers)
+req.body = payload.to_json
+res = http.request(req)
+if (res.code == '200')
+  puts(JSON.parse(res.body))
+else
+  puts("Error getting audit events: status code #{res.code}")
+end
+
 # For more information on the response, check out our support page
 # https://support.1password.com/cs/events-api-reference/

@@ -43,4 +43,15 @@ func main() {
 	defer usagesResponse.Body.Close()
 	usagesBody, _ := ioutil.ReadAll(usagesResponse.Body)
 	fmt.Println(string(usagesBody))
+
+	auditEventsRequest, _ := http.NewRequest("POST", fmt.Sprintf("%s/api/v1/auditevents", url), bytes.NewBuffer(payload))
+	auditEventsRequest.Header.Set("Content-Type", "application/json")
+	auditEventsRequest.Header.Set("Authorization", "Bearer "+api_token)
+	auditEventsResponse, auditEventsError := client.Do(auditEventsRequest)
+	if auditEventsError != nil {
+		panic(auditEventsError)
+	}
+	defer auditEventsResponse.Body.Close()
+	auditEventsBody, _ := ioutil.ReadAll(auditEventsResponse.Body)
+	fmt.Println(string(auditEventsBody))
 }

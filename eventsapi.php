@@ -35,5 +35,8 @@ print($signin_attempts);
 $item_usages = file_get_contents($url."/api/v1/itemusages", false, $context);
 print($item_usages);
 
+$audit_events = file_get_contents($url."/api/v1/auditevents", false, $context);
+print($audit_events);
+
 # For more information on the response, check out our support page
 # https://support.1password.com/cs/events-api-reference/
