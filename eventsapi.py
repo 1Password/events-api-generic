@@ -34,5 +34,11 @@ if (r.status_code == requests.codes.ok):
 else:
   print("Error getting item usages: status code", r.status_code)
 
+r = requests.post(f"{url}/api/v1/auditevents", headers=headers, json=payload)
+if (r.status_code == requests.codes.ok):
+  print(r.json())
+else:
+  print("Error getting audit events: status code", r.status_code)
+
 # For more information on the response, check out our support page
 # https://support.1password.com/cs/events-api-reference/
