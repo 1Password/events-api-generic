@@ -18,6 +18,6 @@ EVENTS_API_TOKEN="op://Vault/Item/token" op run -- go run eventsapi.go
 
 You can generate an API bearer token [online](https://support.1password.com/events-reporting/#appendix-issue-or-revoke-bearer-tokens) or through the [CLI](https://developer.1password.com/docs/cli/reference/management-commands/events-api#events-api-create).
 
-The script will print at most 20 sign in attempts and item usage events from the last 24 hours.
+The script will print up to 20 audit events, sign-in attempts, or item usages from the last 24 hours.
 
 For more information, check out our support page [here](https://support.1password.com/events-reporting/).
