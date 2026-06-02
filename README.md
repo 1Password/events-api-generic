@@ -21,3 +21,5 @@ You can generate an API bearer token [on 1Password.com](https://support.1passwor
 The script will print up to 20 audit events, sign-in attempts, or item usages from the last 24 hours.
 
 Learn more about how to [get started with 1Password Events Reporting](https://support.1password.com/events-reporting/).
+
+*By accessing or using 1Password Developer Tools, you agree to the [API and SDK Terms of Service](https://1password.com/legal/api-sdk-terms-of-service).*
