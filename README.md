@@ -4,6 +4,8 @@ This repository contains scripts in several languages to get started with the Ev
 
 All scripts use the `EVENTS_API_TOKEN` environment variable to load your API token. You should use [`op run`](https://developer.1password.com/docs/cli/reference/commands/run) and [secret references](https://developer.1password.com/docs/cli/secrets-reference-syntax/) provided by the [1Password CLI](https://developer.1password.com/docs/cli) to securely load environment variables.
 
+*By accessing or using 1Password Developer Tools, you agree to the [API and SDK Terms of Service](https://1password.com/legal/api-sdk-terms-of-service).*
+
 **Example 1** - using an `.env` file, running the PHP script:
 
 ```shell
@@ -21,5 +23,3 @@ You can generate an API bearer token [on 1Password.com](https://support.1passwor
 The script will print up to 20 audit events, sign-in attempts, or item usages from the last 24 hours.
 
 Learn more about how to [get started with 1Password Events Reporting](https://support.1password.com/events-reporting/).
-
-*By accessing or using 1Password Developer Tools, you agree to the [API and SDK Terms of Service](https://1password.com/legal/api-sdk-terms-of-service).*
