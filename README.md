@@ -4,6 +4,8 @@ This repository contains scripts in several languages to get started with the Ev
 
 All scripts use the `EVENTS_API_TOKEN` environment variable to load your API token. You should use [`op run`](https://developer.1password.com/docs/cli/reference/commands/run) and [secret references](https://developer.1password.com/docs/cli/secrets-reference-syntax/) provided by the [1Password CLI](https://developer.1password.com/docs/cli) to securely load environment variables.
 
+*Use of the 1Password APIs and services accessed through this project is governed by the [1Password API Terms of Service](https://1password.com/legal/api-sdk-terms-of-service).*
+
 **Example 1** - using an `.env` file, running the PHP script:
 
 ```shell
